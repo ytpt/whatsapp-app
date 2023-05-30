@@ -1,0 +1,14 @@
+.profile-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 10px;
+    background-color: #ededed;
+    padding: 15px;
+}
+
+.profile-header-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 70%;
+}

@@ -1,0 +1,78 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #ededed;;
+}
+
+.profile-settings {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    background: #ededed;
+    padding: 15px;
+    border-right: 1px solid #d1d7db;
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 70%;
+}
+
+.profile-settings-icons {
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+    justify-content: right;
+}
+
+.settings-icon {
+    width: 30px;
+    height: 30px;
+    color: rgb(99, 99, 99);
+    cursor: pointer;
+}
+
+.profile-searchbox {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    align-items: center;
+    background: #FFF;
+    padding: 10px;
+}
+
+.profile-search {
+    display: flex;
+    flex-direction: row;
+    column-gap: 50px;
+    width: 100%;
+    background-color: #f6f6f6;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.search-icon {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    color: grey;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.profile-input {
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 17px;
+    background-color: transparent;
+}
+
+.profile-input::placeholder {
+    padding-left: 60px;
+}
+
