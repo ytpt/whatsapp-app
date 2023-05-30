@@ -6,6 +6,7 @@ import ProfileHeader from "./ProfileHeader/ProfileHeader";
 
 const ConversationComponent = () => {
     const [inputValue, setInputValue] = useState("");
+
     const handleInputChange = (inputValue) => {
         setInputValue(inputValue);
     }

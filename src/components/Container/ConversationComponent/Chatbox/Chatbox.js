@@ -9,6 +9,7 @@ import { IoSend } from "react-icons/io5";
 
 const Chatbox = ({ onChange }) => {
     const [inputValue, setInputValue] = useState("");
+
     const { host, idInstance, apiTokenInstance } = config;
     const url = `${host}/waInstance${idInstance}/sendMessage/${apiTokenInstance}`;
 
@@ -49,8 +50,8 @@ const Chatbox = ({ onChange }) => {
                 />
                 { inputValue.length !== 0 
                     ? <IoSend className="emoji"
-                    // onClick={sendMessage} 
-                    onClick={handleInputChange}    
+                        // onClick={sendMessage}
+                        onClick={handleInputChange}
                     />
                     : <FaMicrophone className="emoji" />
                 }
