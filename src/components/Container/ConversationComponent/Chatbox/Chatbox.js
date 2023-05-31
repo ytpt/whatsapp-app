@@ -11,25 +11,34 @@ const Chatbox = ({ onChange }) => {
     const [inputValue, setInputValue] = useState("");
 
     const { host, idInstance, apiTokenInstance } = config;
-    const url = `${host}/waInstance${idInstance}/sendMessage/${apiTokenInstance}`;
 
     const handleInputChange = () => {
         const newInputValue = document.querySelector(".chatbox-input").value;
         onChange(newInputValue);
         setInputValue("");
 
-        const sendMessage = async () => {
-            try {
-                const response = await axios.post(url, {
-                    "chatId": "7123456789@c.us",
-                    "message": inputValue
-                });
-                console.log(response.data);
-            } catch (error) {
-                console.error(error);
-            }
-        }
-        sendMessage();
+        let data = JSON.stringify({
+            "chatId": "7123456789@c.us",
+            "message": inputValue
+        });
+
+        let requestAPI = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: `${host}/waInstance${idInstance}/sendMessage/${apiTokenInstance}`,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: data
+        };
+
+        axios.request(requestAPI)
+            .then((response) => {
+                console.log(JSON.stringify(response.data));
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     const onKeyDown = (e) => {
