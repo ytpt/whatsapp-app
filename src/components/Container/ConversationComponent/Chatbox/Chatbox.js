@@ -13,27 +13,24 @@ const Chatbox = ({ onChange }) => {
     const { host, idInstance, apiTokenInstance } = config;
     const url = `${host}/waInstance${idInstance}/sendMessage/${apiTokenInstance}`;
 
-    // const sendMessage = async () => {
-    //     try {
-    //       const response = await axios.post(url, {
-    //         "chatId": "7123456789@c.us",
-    //         "message": inputValue
-    //       });
-    //       console.log(response.data);
-    //     } catch (error) {
-    //       console.error(error);
-    //     }
-    // };
-
     const handleInputChange = () => {
         const newInputValue = document.querySelector(".chatbox-input").value;
         onChange(newInputValue);
-        clearInputValue();
-    }
-
-    const clearInputValue = () => {
         setInputValue("");
-    };
+
+        const sendMessage = async () => {
+            try {
+                const response = await axios.post(url, {
+                    "chatId": "7123456789@c.us",
+                    "message": inputValue
+                });
+                console.log(response.data);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        sendMessage();
+    }
 
     const onKeyDown = (e) => {
         e.key === "Enter" && handleInputChange();
@@ -55,7 +52,6 @@ const Chatbox = ({ onChange }) => {
                 />
                 { inputValue.length !== 0 
                     ? <IoSend className="emoji"
-                        // onClick={sendMessage}
                         onClick={handleInputChange}
                     />
                     : <FaMicrophone className="emoji" />
