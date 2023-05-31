@@ -35,6 +35,10 @@ const Chatbox = ({ onChange }) => {
         setInputValue("");
     };
 
+    const onKeyDown = (e) => {
+        e.key === "Enter" && handleInputChange();
+    }
+
     return (
         <div className="chatbox-container">
             <div className="chatbox">
@@ -46,6 +50,7 @@ const Chatbox = ({ onChange }) => {
                     className="chatbox-input" 
                     placeholder="Введите сообщение"
                     value={inputValue}
+                    onKeyDown={onKeyDown}
                     onChange={(e) => setInputValue(e.target.value)} 
                 />
                 { inputValue.length !== 0 
